@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%- title %></title>
+    <title>聯絡我們- DOYOGA</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
@@ -83,7 +83,55 @@
       </li>
     </ul>
 
-    <%- contents %>
+    
+<main data-page="contactUs" class="contactUs pt-24 pb-44 pt-md-32 pb-md-40 pb-lg-55">
+  <section class="container">
+    <h2 class="fs-3 text-secondary text-center mb-12 mb-md-16">聯絡我們</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-7">
+        <div class="ratio ratio-634x360 mb-12">
+          <iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29463.976423814194!2d120.2795830340444!3d22.616585231305137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc1fac6c74b328d9a!2z5q2m5buf5biC5aC0!5e0!3m2!1szh-TW!2stw!4v1630339136370!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="locationInfo mb-20 mb-lg-0">
+          <h3 class="fs-4 text-secondary fw-normal mb-4">DOYOGA 教室位置</h3>
+          <p class="text-secondary mb-4">高雄市苓雅區北信街 23 號 2 樓</p>
+          <p class="text-secondary">如何前往：</p>
+          <ul class="list-unstyled">
+            <li class="text-secondary mb-12">1. 搭乘捷運：紅線到正義站 3 號出口，延正義路<br>方向至北信街交叉口即可。</li>
+            <li class="text-secondary mb-12">2. 搭乘公車：搭這些公車都可以抵達正義站<br>24B 25 33 50 76 77 77區 100</li>
+            <li class="text-secondary">3. 開車前往北信街 32 號，教室旁有專屬停<br>車場可以使用。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-10 col-lg-5">
+        <div class="h-100 bg-brown-light p-16 rounded-16">
+          <h3 class="fs-5 text-secondary fw-normal mb-8 mb-md-12">意見回饋&問題詢問</h3>
+          <form>
+            <div class="mb-8">
+              <label for="name" class="form-label text-secondary mb-4">姓名</label>
+              <input type="text" class="form-control form-control-sm" id="name" placeholder="請輸入您的姓名">
+            </div>
+            <div class="mb-8">
+              <label for="email" class="form-label text-secondary mb-4">電子信箱</label>
+              <input type="email" class="form-control form-control-sm" id="email" placeholder="email@example.com">
+            </div>
+            <div class="mb-8">
+              <label for="tel" class="form-label text-secondary mb-4">手機號碼</label>
+              <input type="tel" class="form-control form-control-sm" id="tel" placeholder="0912-345-678">
+            </div>
+            <div class="mb-8">
+              <label for="message" class="form-label text-secondary mb-4">意見回饋</label>
+              <textarea class="form-control form-control-sm" id="message"></textarea>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary fs-7 rounded-5 px-6 py-3" type="button">送出</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
     <footer class="footer bg-secondary">
       <div class="py-12 py-md-16 border-bottom">

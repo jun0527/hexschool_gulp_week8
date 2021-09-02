@@ -1,38 +1,40 @@
-const main = document.querySelector('main');
-const menuCollapseBtn = document.querySelector('.js-menuCollapseBtn');
-const menuIcon = document.querySelector('.js-menuIcon');
-const pagination = document.querySelectorAll('.js-pagination');
-const preBtn = document.querySelector('.js-preBtn');
-const nextBtn = document.querySelector('.js-nextBtn');
-const planCards = document.querySelectorAll('.js-planCard li');
-const planCardButtons = document.querySelectorAll('.js-planCard a');
-const chooseArrow = document.querySelector('.js-chooseArrow');
-const courseLvArea = document.querySelector('.js-chooseCollapse');
-const nextStepBtnArea = document.querySelector('.js-nextStepBtn');
-const nextStepBtn = document.querySelector('.js-nextStepBtn a');
-const courseName = document.querySelector('.js-courseName');
-const courseLv = document.querySelectorAll('.js-courseLvList a');
-const dateArea = document.querySelector('.js-dateArea');
-//menu 摺疊按鈕切換
-menuCollapseBtn.addEventListener('click', (e) => {
+"use strict";
+
+var main = document.querySelector('main');
+var menuCollapseBtn = document.querySelector('.js-menuCollapseBtn');
+var menuIcon = document.querySelector('.js-menuIcon');
+var pagination = document.querySelectorAll('.js-pagination');
+var preBtn = document.querySelector('.js-preBtn');
+var nextBtn = document.querySelector('.js-nextBtn');
+var planCards = document.querySelectorAll('.js-planCard li');
+var planCardButtons = document.querySelectorAll('.js-planCard a');
+var chooseArrow = document.querySelector('.js-chooseArrow');
+var courseLvArea = document.querySelector('.js-chooseCollapse');
+var nextStepBtnArea = document.querySelector('.js-nextStepBtn');
+var nextStepBtn = document.querySelector('.js-nextStepBtn a');
+var courseName = document.querySelector('.js-courseName');
+var courseLv = document.querySelectorAll('.js-courseLvList a');
+var dateArea = document.querySelector('.js-dateArea'); //menu 摺疊按鈕切換
+
+menuCollapseBtn.addEventListener('click', function (e) {
   if (menuCollapseBtn.getAttribute('class') === 'js-menuCollapseBtn d-block collapsed') {
     menuIcon.textContent = 'reorder';
   } else {
     menuIcon.textContent = 'close';
   }
-})
+}); //首頁課程swiper
 
-//首頁課程swiper
 if (main.getAttribute('data-page') === 'index') {
-  const swiper = new Swiper(".mySwiper", {
+  var swiper = new Swiper(".mySwiper", {
     slidesPerView: 2,
     spaceBetween: 30,
-    loop: true,
+    loop: true
   });
-}
-//課程介紹師資介紹swiper
+} //課程介紹師資介紹swiper
+
+
 if (main.getAttribute('data-page') === 'course') {
-  const swiper = new Swiper(".mySwiper", {
+  var _swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
     // autoHeight: true,
@@ -46,18 +48,19 @@ if (main.getAttribute('data-page') === 'course') {
       992: {
         slidesPerView: 3,
         spaceBetween: 30
-      },
+      }
     }
   });
-}
-//瑜珈空間課程推薦swiper
+} //瑜珈空間課程推薦swiper
+
+
 if (main.getAttribute('data-page') === 'surroundings') {
-  const swiper = new Swiper(".mySwiper", {
+  var _swiper2 = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
     autoplay: {
-      delay: 3000,
+      delay: 3000
     },
     breakpoints: {
       // when window width is >= 320px
@@ -69,60 +72,66 @@ if (main.getAttribute('data-page') === 'surroundings') {
       992: {
         slidesPerView: 4,
         spaceBetween: 30
-      },
+      }
     }
   });
-}
+} //首頁評論手機板換頁
 
-//首頁評論手機板換頁
-window.addEventListener('resize', () =>  {
+
+window.addEventListener('resize', function () {
   if (main.getAttribute('data-page') === 'index') {
     if (document.body.clientWidth < 768) {
-      let paginationNum = 1;
+      var paginationNum = 1;
       changePage(paginationNum);
-      preBtn.addEventListener('click', (e) => {
-        paginationNum --;
+      preBtn.addEventListener('click', function (e) {
+        paginationNum--;
         isDisabled(paginationNum);
         changePage(paginationNum);
-      })
-      nextBtn.addEventListener('click', (e) => {
-        paginationNum ++;
+      });
+      nextBtn.addEventListener('click', function (e) {
+        paginationNum++;
         isDisabled(paginationNum);
         changePage(paginationNum);
-      })
+      });
     } else {
-      pagination.forEach((item) => {
+      pagination.forEach(function (item) {
         item.setAttribute('class', 'js-pagination row flex-md-nowrap');
-      })
+      });
     }
   }
 });
+
 function changePage(paginationNum) {
-  pagination.forEach((item, index) => {
+  pagination.forEach(function (item, index) {
     if (index !== paginationNum - 1) {
       item.setAttribute('class', 'js-pagination row flex-md-nowrap d-none');
     } else {
       item.setAttribute('class', 'js-pagination row flex-md-nowrap');
     }
-  })
+  });
 }
+
 function isDisabled(paginationNum) {
   preBtn.setAttribute('class', 'js-preBtn');
   nextBtn.setAttribute('class', 'js-preBtn');
+
   if (paginationNum === 1) {
     preBtn.setAttribute('class', 'js-preBtn disabled');
-  } 
+  }
+
   if (pagination.length === paginationNum) {
     nextBtn.setAttribute('class', 'js-preBtn disabled');
   }
-}
-//首頁方案選擇
+} //首頁方案選擇
+
+
 if (main.getAttribute('data-page') === 'index') {
-  planCardButtons.forEach((item, index) => {
-    item.addEventListener('click', () => {
-      let course;
-      let level = '基礎';
-      let planNum = index;
+  planCardButtons.forEach(function (item, index) {
+    item.addEventListener('click', function () {
+      var course;
+      var level = '基礎';
+      var planNum = index;
+
       if (index === 0) {
         course = '首次體驗';
       } else if (index === 1) {
@@ -130,44 +139,28 @@ if (main.getAttribute('data-page') === 'index') {
       } else {
         course = '長期體驗';
       }
-      console.log(`${course}課程-${level}`);
-      let courseName = `${course}課程-${level}`
+
+      console.log("".concat(course, "\u8AB2\u7A0B-").concat(level));
+      var courseName = "".concat(course, "\u8AB2\u7A0B-").concat(level);
       localStorage.setItem('courseName', courseName);
       localStorage.setItem('openPlan', planNum);
-    })
-  })
-}
+    });
+  });
+} //方案選擇頁
 
-//方案選擇頁
+
 if (main.getAttribute('data-page') === 'choosePlan') {
-  let planNum;
-  let course;
-  let level = '基礎';
-  let openPlanNum = localStorage.getItem('openPlan');
-  const chooseCollapse = new bootstrap.Collapse(courseLvArea, {
-    toggle: false
-  });
-  const btnCollapse = new bootstrap.Collapse(nextStepBtnArea, {
-    toggle: false
-  });
-  if (openPlanNum !== '') {
-    open();
-    openArrow(parseInt(openPlanNum));
-    responsiveOpen(parseInt(openPlanNum));
-    console.log(openPlanNum);
-    courseName.textContent = `${course}課程-${level}`;
-    localStorage.setItem('openPlan', '');
-    console.log(course);
-  }
-  function open() {
+  var open = function open() {
     chooseCollapse.show();
     btnCollapse.show();
-  }
-  function change() {
+  };
+
+  var change = function change() {
     chooseCollapse.toggle();
     btnCollapse.toggle();
-  }
-  function openArrow(num) {
+  };
+
+  var openArrow = function openArrow(num) {
     if (num === 0) {
       chooseArrow.setAttribute('class', 'js-chooseArrow col-4 text-center');
       planCardButtons[0].setAttribute('class', 'card overflow-hidden active');
@@ -181,62 +174,90 @@ if (main.getAttribute('data-page') === 'choosePlan') {
       planCardButtons[2].setAttribute('class', 'card overflow-hidden active');
       course = '長期體驗';
     }
-  }
-  function responsiveOpen(index) {
+  };
+
+  var responsiveOpen = function responsiveOpen(index) {
     if (document.body.clientWidth < 992) {
       chooseArrow.setAttribute('class', 'js-chooseArrow text-center');
-      planCards.forEach((card, num) => {
+      planCards.forEach(function (card, num) {
         //當lg以下collapse開啟時，非點擊的課程卡片消失
         courseLvArea.addEventListener('shown.bs.collapse', function () {
           card.setAttribute('class', 'col-lg-4 d-none');
+
           if (index === num) {
             card.setAttribute('class', 'col-lg-4');
           }
-        })
-        //當lg以下collapse關上時，課程卡片出現
+        }); //當lg以下collapse關上時，課程卡片出現
+
         courseLvArea.addEventListener('hidden.bs.collapse', function () {
           card.setAttribute('class', 'col-lg-4');
-        })
-      })
+        });
+      });
     }
+  };
+
+  var planCardClearActive = function planCardClearActive() {
+    planCardButtons.forEach(function (item) {
+      item.setAttribute('class', 'card overflow-hidden');
+    });
+  }; //選擇方案
+
+
+  var planNum;
+  var course;
+  var level = '基礎';
+  var openPlanNum = localStorage.getItem('openPlan');
+  var chooseCollapse = new bootstrap.Collapse(courseLvArea, {
+    toggle: false
+  });
+  var btnCollapse = new bootstrap.Collapse(nextStepBtnArea, {
+    toggle: false
+  });
+
+  if (openPlanNum !== '') {
+    open();
+    openArrow(parseInt(openPlanNum));
+    responsiveOpen(parseInt(openPlanNum));
+    console.log(openPlanNum);
+    courseName.textContent = "".concat(course, "\u8AB2\u7A0B-").concat(level);
+    localStorage.setItem('openPlan', '');
+    console.log(course);
   }
-  function planCardClearActive() {
-    planCardButtons.forEach((item) => {
-      item.setAttribute('class', 'card overflow-hidden')
-    })
-  }
-  //選擇方案
-  planCardButtons.forEach((item, index) => {
-    item.addEventListener('click', ()=> {
+
+  planCardButtons.forEach(function (item, index) {
+    item.addEventListener('click', function () {
       planCardClearActive();
       openArrow(index);
-      responsiveOpen(index)
+      responsiveOpen(index);
+
       if (planNum === index) {
         change();
-      } else  {
+      } else {
         open();
       }
+
       planNum = index;
       console.log(course);
-      courseName.textContent = `${course}課程-${level}`;
+      courseName.textContent = "".concat(course, "\u8AB2\u7A0B-").concat(level);
       courseLvArea.addEventListener('hide.bs.collapse', function () {
         level = '基礎';
         planCardClearActive();
-        courseLv.forEach((item, index) => {
+        courseLv.forEach(function (item, index) {
           if (index === 0) {
             item.setAttribute('class', 'card h-100 bg-primary shadow-sm p-10 p-lg-6 p-xl-10 active');
           } else {
             item.setAttribute('class', 'card h-100 bg-primary shadow-sm p-10 p-lg-6 p-xl-10');
           }
-        })
-      })
-    })
-  })
-  courseLv.forEach((item, index) => {
-    item.addEventListener('click', () => {
-      courseLv.forEach((item) => {
+        });
+      });
+    });
+  });
+  courseLv.forEach(function (item, index) {
+    item.addEventListener('click', function () {
+      courseLv.forEach(function (item) {
         item.setAttribute('class', 'card h-100 bg-primary shadow-sm p-10 p-lg-6 p-xl-10');
-      })
+      });
+
       if (index === 0) {
         level = '基礎';
       } else if (index === 1) {
@@ -244,36 +265,36 @@ if (main.getAttribute('data-page') === 'choosePlan') {
       } else if (index === 2) {
         level = '高階';
       }
+
       item.setAttribute('class', 'card h-100 bg-primary shadow-sm p-10 p-lg-6 p-xl-10 active');
-      courseName.textContent = `${course}課程-${level}`;
-    })
-  })
-  nextStepBtn.addEventListener('click', () => {
+      courseName.textContent = "".concat(course, "\u8AB2\u7A0B-").concat(level);
+    });
+  });
+  nextStepBtn.addEventListener('click', function () {
     console.log(course);
-    let courseNameText = `${course}課程-${level}`;
+    var courseNameText = "".concat(course, "\u8AB2\u7A0B-").concat(level);
     console.log(courseNameText);
-    localStorage.setItem('courseName', course === undefined ? localStorage.getItem('courseName') : `${course}課程-${level}`);
-  })
-}
-//立即預約課程名稱切換
+    localStorage.setItem('courseName', course === undefined ? localStorage.getItem('courseName') : "".concat(course, "\u8AB2\u7A0B-").concat(level));
+  });
+} //立即預約課程名稱切換
+
+
 if (main.getAttribute('data-page') === 'customerFrom') {
-  courseName.textContent = localStorage.getItem('courseName');
-  console.log(localStorage.getItem('courseName'));
-}
-if (main.getAttribute('data-page') === 'reservationDone') {
   courseName.textContent = localStorage.getItem('courseName');
   console.log(localStorage.getItem('courseName'));
 }
 
-//日期套件
+if (main.getAttribute('data-page') === 'reservationDone') {
+  courseName.textContent = localStorage.getItem('courseName');
+  console.log(localStorage.getItem('courseName'));
+} //日期套件
+
+
 if (main.getAttribute('data-page') === 'customerFrom') {
-  const date = new Datepicker(dateArea, {
+  var date = new Datepicker(dateArea, {
     minDate: new Date(),
-    nextArrow: `<span class="material-icons text-secondary">
-      chevron_right
-      </span>`,
-    prevArrow: `<span class="material-icons text-secondary">
-      chevron_left
-      </span>`,
+    nextArrow: "<span class=\"material-icons text-secondary\">\n      chevron_right\n      </span>",
+    prevArrow: "<span class=\"material-icons text-secondary\">\n      chevron_left\n      </span>"
   });
 }
+//# sourceMappingURL=all.js.map
