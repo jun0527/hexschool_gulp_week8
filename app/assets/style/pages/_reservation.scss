@@ -1,0 +1,21 @@
+.choosePlan {
+  .icon {
+    font-size: 40px;
+  }
+}
+.customerFrom {
+  select {
+    border: 1px solid $primary;
+    width: 65px;
+    height: 36px;
+  }
+}
+.checkInDateInput {
+  width: 120px;
+  height: 36px;
+}
+.reservationDone {
+  .icon {
+    font-size: 48px;
+  }
+}

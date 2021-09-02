@@ -1,0 +1,13 @@
+.footer {
+  .logo {
+    width: 96px;
+    height: 31px;
+  }
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  ::placeholder {
+    color: $secondary;
+  }
+}

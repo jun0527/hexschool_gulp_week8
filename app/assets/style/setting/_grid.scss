@@ -1,0 +1,17 @@
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.container-lg {
+  // padding-left: 0;
+  // padding-right: 0;
+  @include media-breakpoint-up(lg) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.row {
+  @include media-breakpoint-up(md) {
+    --bs-gutter-x: 30px;
+  }
+}

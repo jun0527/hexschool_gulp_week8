@@ -1,0 +1,93 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    "padding-x": map-merge(
+      map-get($utilities, "padding-x"),
+      (state: hover),
+    ),
+    "padding-y": map-merge(
+      map-get($utilities, "padding-y"),
+      (state: hover),
+    ),
+    "text-decoration": map-merge(
+      map-get($utilities, "text-decoration"),
+      (state: hover),
+    ),
+    "font-weight": map-merge(
+      map-get($utilities, "font-weight"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "font-weight"), "values"),
+          (500: 500),
+        ),
+      ),
+    ),
+    "rounded": map-merge(
+      map-get($utilities, "rounded"),
+      (values: (
+        0: 0,
+        4: 4px,
+        5: 5px,
+        16: 16px,
+        circle: 50%,
+      )),
+    ),
+    "rounded-end": map-merge(
+      map-get($utilities, "rounded-end"),
+      (values: (
+        0: 0,
+        4: 4px,
+        5: 5px,
+        16: 16px,
+      )),
+    ),
+    "overflow": map-merge(
+      map-get($utilities, "overflow"),
+      (responsive: true),
+    ),
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      (responsive: true,
+      rfs: false),
+    ),
+    "position": map-merge(
+      map-get($utilities, "position"),
+      (responsive: true),
+    ),
+    "opacity": (
+      property: opacity,
+      class: opacity,
+      state: hover,
+      values: (
+        0: 0,
+        25: .25,
+        50: .5,
+        75: .75,
+        100: 1,
+      ),
+    ),
+    "ratio": (
+      property: --bs-aspect-ratio,
+      class: ratio,
+      responsive: true,
+      values: (
+        "1x1": 100%,
+        "4x3": calc(3 / 4 * 100%),
+        "16x9": calc(9 / 16 * 100%),
+        "21x9": calc(9 / 21 * 100%),
+        "90x117": calc(117 /90  * 100%),
+        "160x207": calc(207 /160  * 100%),
+        "165x210": calc(210 /165  * 100%),
+        "210x266": calc(266 /210  * 100%),
+        "255x196": calc(196 /255  * 100%),
+        "345x238": calc(238 /345  * 100%),
+        "345x350": calc(350 /345  * 100%),
+        "345x243": calc(243 /345  * 100%),
+        "350x243": calc(243 /350  * 100%),
+        "350x444": calc(444 /350  * 100%),
+        "634x360": calc(360 /634  * 100%),
+        "729x350": calc(350 /729  * 100%),
+      ),
+    ),
+  ),
+);

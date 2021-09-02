@@ -1,0 +1,36 @@
+.btn-primary {
+  color: $white;
+  &:hover {
+    color: $white;
+    background: $secondary;
+  }
+}
+.btn-secondary {
+  color: $white;
+  &:hover {
+    color: $white;
+  }
+}
+.btn-brown-light {
+  color: $secondary;
+  &:hover {
+    background: $secondary;
+    color: $white;
+  }
+}
+.btn-outline-primary {
+  &:hover {
+    color: $white;
+  }
+}
+@each $name, $color in $theme-colors {
+  .btn-text-#{$name} {
+    color: $color;
+  }
+  .btn-hover-bg-#{$name} {
+    &:hover {
+      background: $color;
+      color: $white;
+    }
+  }
+}
