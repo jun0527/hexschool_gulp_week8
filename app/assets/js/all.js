@@ -28,6 +28,9 @@ if (main.getAttribute('data-page') === 'index') {
     slidesPerView: 2,
     spaceBetween: 30,
     loop: true,
+    autoplay: {
+      delay: 3000,
+    },
   });
 }
 //課程介紹師資介紹swiper
@@ -35,7 +38,6 @@ if (main.getAttribute('data-page') === 'course') {
   const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
-    // autoHeight: true,
     breakpoints: {
       // when window width is >= 320px
       768: {
@@ -170,15 +172,15 @@ if (main.getAttribute('data-page') === 'choosePlan') {
   function openArrow(num) {
     if (num === 0) {
       chooseArrow.setAttribute('class', 'js-chooseArrow col-4 text-center');
-      planCardButtons[0].setAttribute('class', 'card overflow-hidden active');
+      planCardButtons[0].setAttribute('class', 'card overflow-hidden card-hover active');
       course = '首次體驗';
     } else if (num === 1) {
       chooseArrow.setAttribute('class', 'js-chooseArrow col-4 offset-lg-4 text-center');
-      planCardButtons[1].setAttribute('class', 'card overflow-hidden active');
+      planCardButtons[1].setAttribute('class', 'card overflow-hidden card-hover active');
       course = '短期體驗';
     } else if (num === 2) {
       chooseArrow.setAttribute('class', 'js-chooseArrow col-4 offset-lg-8 text-center');
-      planCardButtons[2].setAttribute('class', 'card overflow-hidden active');
+      planCardButtons[2].setAttribute('class', 'card overflow-hidden card-hover active');
       course = '長期體驗';
     }
   }
@@ -202,7 +204,7 @@ if (main.getAttribute('data-page') === 'choosePlan') {
   }
   function planCardClearActive() {
     planCardButtons.forEach((item) => {
-      item.setAttribute('class', 'card overflow-hidden')
+      item.setAttribute('class', 'card overflow-hidden card-hover')
     })
   }
   //選擇方案
