@@ -22937,6 +22937,23 @@ input {
   opacity: 0.5;
 }
 
+.card-hover:hover:not(.active) {
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-hover:hover:not(.active) img {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.card-imgEnlarge-hover:hover img {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
 .courseModal .modal-dialog {
   max-width: 100%;
   margin-left: 0;
